@@ -1,5 +1,7 @@
 import puppeteer from 'puppeteer';
 
+const project = "tableau/villagepump-dashboard";
+
 (async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
@@ -7,12 +9,12 @@ import puppeteer from 'puppeteer';
   await page.setViewport({width: 1366, height: 768});
 
   console.log("start")
-  await page.goto('http://localhost:1313/tableau/japanese-font/', {waitUntil: 'load'});
+  await page.goto(`http://localhost:1313/${project}/`, {waitUntil: 'load'});
 
-  await page.waitForNetworkIdle()
+  await page.waitForNetworkIdle({idleTime: 5000});
 
   console.log("capture")
-  await page.screenshot({path: "1.png"});
+  await page.screenshot({path: `content/${project}/thumb.png`});
 
   // Type into search box
   // await page.type('.search-box__input', 'automate beyond recorder');
