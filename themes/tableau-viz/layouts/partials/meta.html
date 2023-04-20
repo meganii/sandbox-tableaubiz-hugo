@@ -11,9 +11,5 @@
 <meta name="twitter:url" content="{{ .Permalink }}">
 <meta name="twitter:title" content="{{ .Title }} - {{ .Site.Title }}">
 <meta name="twitter:description" content="{{ replaceRE "\n" "" ((.Description | default .Summary) | plainify) }}">
-<meta name="twitter:image" content="{{ if isset .Params "img" }}{{ if eq (substr .Params.img 0 4) "http" }}{{ .Params.img }}{{ else }}{{ $.Site.BaseURL }}{{ replaceRE "^/" "" .Params.img }}{{ end }}{{ else }}{{ $.Site.BaseURL }}images/nopicture.png{{ end }}">
-
-{{ $isAmazonLink := findRE `https:\/\/.*amazon\.com` .Params.img }}
-<meta name="twitter:card" content="{{ if $isAmazonLink }}summary{{ else }}summary_large_image{{ end }}" />
-
-<meta property="fb:app_id" content="385471528156440" />
+<meta name="twitter:image" content="{{ if isset .Params "thumb" }}{{ .Permalink }}{{ .Params.Thumb }}{{ end }}">
+<meta name="twitter:card" content="summary_large_image" />
