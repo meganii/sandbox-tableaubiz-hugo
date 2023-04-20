@@ -1,0 +1,5 @@
+{{ define "main" }}
+{{ range .Paginator.Pages }}
+<a href="{{ .Permalink }}" class="block absolute top-0 left-0 w-full h-full"></a>
+{{ end }}
+{{ end }}
