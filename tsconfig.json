@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "es5",
+            "es6",
+            "dom"
+        ],
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "es6",
+        "moduleResolution": "node",
+    }
+}

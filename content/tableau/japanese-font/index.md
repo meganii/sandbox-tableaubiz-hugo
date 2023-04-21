@@ -5,7 +5,8 @@ thumb: "thumb.png"
 
 <div>
 <tableau-viz id="tableauViz"       
-  src='https://public.tableau.com/views/_16819937033550/1_1'>
+  src='https://public.tableau.com/views/_16819937033550/1_1'
+  onFirstInteractive="onFirstInteractiveHandler">
 </tableau-viz>
 </div>
 
