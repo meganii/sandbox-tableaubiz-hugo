@@ -1,40 +1,53 @@
 import puppeteer from 'puppeteer';
 
-const project = "tableau/villagepump-dashboard";
+const projects = [
+  "tableau/blog-mentoring",
+  "tableau/japanese-font",
+  "tableau/villagepump-dashboard"
+];
+
+const baseurl = 'https://viz.meganii.com';
 
 (async () => {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  // Set screen size
-  await page.setViewport({width: 1366, height: 768});
+  const browser = await puppeteer.launch({ headless: true });
+  let promiseList = [];
 
-  console.log("start")
-  await page.goto(`http://localhost:1313/${project}/`, {waitUntil: 'load'});
+  try {
+    projects.forEach(project => {
+      promiseList.push((async () => {
+        const page = await browser.newPage();
+        // Set screen size
+        await page.setViewport({ width: 1366, height: 768 });
+        await page.setDefaultNavigationTimeout(0);
 
-  await page.waitForNetworkIdle({idleTime: 5000});
+        const url = `${baseurl}/${project}/`;
+        console.log(`Start ${url}`);
+        await page.goto(url);
 
-  console.log("capture")
-  await page.screenshot({path: `content/${project}/thumb.png`});
+        console.log(`Wait for event ${url}`);
+        await Promise.race([
+          page.evaluate(() => {
+            return new Promise((resolve) => {
+              let viz = document.getElementById("tableauViz");
+              viz.addEventListener('firstinteractive', resolve, { once: true })
+            })
+          }),
+          new Promise(r => setTimeout(r, 100000))
+        ]);
 
-  // Type into search box
-  // await page.type('.search-box__input', 'automate beyond recorder');
+        await new Promise(r => setTimeout(r, 2000));
+        console.log(`Complete ${url}`);
 
-  // Wait and click on first result
-  // const searchResultSelector = '.search-box__link';
-  // await page.waitForSelector(searchResultSelector);
-  // await page.click(searchResultSelector);
+        console.log(`Screenshot ${url}`);
+        await page.screenshot({ path: `content/${project}/thumb.png` });
+      })().catch(e => console.error(e)))
+    });
 
-  // Locate the full title with a unique string
-  // const textSelector = await page.waitForSelector(
-  //   'text/Customize and automate'
-  // );
-  // let fullTitle = '';
-  // if (textSelector) {
-  //   fullTitle = await textSelector.evaluate(el => el.textContent) || '';
-  // }
-
-  // Print the full title
-  // console.log('The title of this blog post is "%s".', fullTitle);
-
-  await browser.close();
+    await Promise.all(promiseList);
+    await browser.close();
+    console.log("Close browser");
+    process.exit(0);
+  } catch (error) {
+    console.error(error);
+  }
 })();
