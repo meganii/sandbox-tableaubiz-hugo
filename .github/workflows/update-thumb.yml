@@ -58,3 +58,20 @@ jobs:
 
       - name: Run Script
         run: npx ts-node script/capture.ts
+
+      - name: Diff
+        id: diff
+        run: |
+          git add -N content
+          git diff --name-only --exit-code
+        continue-on-error: true
+      
+      - name: Commit files
+        run: |
+          set -x
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add images
+          git commit -m "Update"
+          git push
+        if: steps.diff.outcome == 'failure'
