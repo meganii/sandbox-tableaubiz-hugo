@@ -1,0 +1,25 @@
+name: Scheduled update thumbnail
+
+on:
+  schedule:
+    - cron: 1 18 * * *
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt -y install fonts-ipafont
+      - name: Update font cache
+        run: |
+          fc-cache
+          fc-list | grep -i ipa
+
+      - name: Check Japanese fonts
+        run: cd /etc/fonts; fc-match :lang=ja
