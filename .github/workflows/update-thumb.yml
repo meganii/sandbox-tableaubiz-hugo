@@ -52,3 +52,6 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Run Script
+        run: npx ts-node script/capture.ts
