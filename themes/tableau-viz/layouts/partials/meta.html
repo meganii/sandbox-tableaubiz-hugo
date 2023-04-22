@@ -2,7 +2,7 @@
 <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="{{ if isset .Params "thumb" }}{{ .Permalink }}{{ .Params.Thumb }}?20230422{{ end }}">
+<meta property="og:image" content="{{ if isset .Params "thumb" }}{{ .Permalink }}{{ .Params.Thumb }}{{ end }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:description" content="{{ replaceRE "\n" "" ((.Description | default .Summary) | plainify) }}">
 <meta property="og:locale" content="ja_JP">
@@ -11,5 +11,5 @@
 <meta name="twitter:url" content="{{ .Permalink }}">
 <meta name="twitter:title" content="{{ .Title }} - {{ .Site.Title }}">
 <meta name="twitter:description" content="{{ replaceRE "\n" "" ((.Description | default .Summary) | plainify) }}">
-<meta name="twitter:image" content="{{ if isset .Params "thumb" }}{{ .Permalink }}{{ .Params.Thumb }}?20230422{{ end }}">
+<meta name="twitter:image" content="{{ if isset .Params "thumb" }}{{ .Permalink }}{{ .Params.Thumb }}{{ end }}">
 <meta name="twitter:card" content="summary_large_image" />
