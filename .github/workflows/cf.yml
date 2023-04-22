@@ -1,0 +1,12 @@
+name: Build Cloudflare pages
+
+on:
+  schedule:
+    - cron: '30 10 * * *'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Deploy
+        run: curl -X POST "${{ secrets.CLOUDFLARE_PAGES_WEBHOOK }}"
