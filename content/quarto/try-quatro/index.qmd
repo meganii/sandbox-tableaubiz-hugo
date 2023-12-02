@@ -17,7 +17,7 @@ stations |>
 
 df_tksm <-
   # year引数に与えられる年を指定 ... 2021年から2022年まで
-  seq.int(1923, 2022) |>
+  seq.int(2021, 2022) |>
   purrr::set_names() |>
   purrr::map(
     \(x) jma_collect(item = "daily",
