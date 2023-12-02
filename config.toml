@@ -4,6 +4,8 @@ title = 'HugoViz'
 
 theme = "tableau-viz"
 
+ignoreFiles = [ "\\.qmd$", "\\.ipynb$", "\\.py$" ]
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
