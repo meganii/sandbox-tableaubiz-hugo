@@ -2,7 +2,10 @@ name: Cloudflare Pages
 
 on:
   workflow_dispatch:
-  [push]
+  push:
+    branches:
+      - master
+
 
 jobs:
   publish:
