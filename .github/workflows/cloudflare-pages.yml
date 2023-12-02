@@ -22,6 +22,11 @@ jobs:
           sudo apt-get update
           sudo apt -y install r-base-dev libcurl4-openssl-dev libudunits2-dev libgdal-dev libharfbuzz-dev libfribidi-dev
 
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.119.0'
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
