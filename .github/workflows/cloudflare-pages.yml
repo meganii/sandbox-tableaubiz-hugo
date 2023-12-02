@@ -21,7 +21,7 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Install R packages
-        run: Rscript -e 'install.packages(c("knitr", "rmarkdown"))
+        run: Rscript -e 'install.packages(c("knitr", "rmarkdown"))'
 
       - name: Render Quarto and Build hugo
         run: quarto render && hugo -gc
