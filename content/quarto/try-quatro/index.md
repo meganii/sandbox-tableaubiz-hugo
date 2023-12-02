@@ -3,7 +3,7 @@ title: Hello, Quarto
 date: "2023-12-02"
 format: hugo-md
 execute:
-  cache: true
+  freeze: true
 ---
 
 ``` r
