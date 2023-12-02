@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt -y install r-base-dev
+          sudo apt -y install r-base-dev libcurl4-openssl-dev
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
