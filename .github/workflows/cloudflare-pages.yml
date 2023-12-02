@@ -35,7 +35,7 @@ jobs:
       - uses: r-lib/actions/setup-renv@v2
 
       - name: Render Quarto and Build hugo
-        run: quarto render && hugo -gc
+        run: quarto render && hugo --gc
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@1
