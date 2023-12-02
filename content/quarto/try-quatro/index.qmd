@@ -2,13 +2,18 @@
 title: Hello, Quarto
 date: "2023-12-02"
 format: hugo-md
+execute:
+  cache: true
 ---
 
 ```{r}
-library(jmastats)
-library(tidyverse) # dplyr, lubridateなどのデータ操作用
-library(units) # 
-library(patchwork) # 複数の図を結合してよしなに配置するためのパッケージ
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(
+  jmastats,
+  tidyverse,
+  units,
+  patchwork
+)
 theme_set(theme_bw()) # ggplot2のテーマ指定
 
 stations |>
@@ -17,7 +22,7 @@ stations |>
 
 df_tksm <-
   # year引数に与えられる年を指定 ... 2021年から2022年まで
-  seq.int(2021, 2022) |>
+  seq.int(2022, 2023) |>
   purrr::set_names() |>
   purrr::map(
     \(x) jma_collect(item = "daily",
