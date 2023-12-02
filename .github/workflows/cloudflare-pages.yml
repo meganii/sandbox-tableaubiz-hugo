@@ -1,0 +1,30 @@
+name: Cloudflare Pages
+
+on:
+  workflow_dispatch:
+  [push]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render Quarto and Build hugo
+        run: quarto render && hugo -gc
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@1
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          projectName: sandbox-tableaubiz-hugo
+          directory: public
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
