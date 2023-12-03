@@ -6,6 +6,16 @@
   />
   {{- partial "meta.html" . -}}
   {{- partialCached "css.html" . -}}
+  <script
+    type="module"
+    src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.js"
+  ></script>
+  <script>
+    function onFirstInteractiveHandler(e) {
+      document.dispatchEvent(new Event("app-ready"));
+      console.log("onFirstInteractiveHandler");
+    }
+  </script>
   <title>
     {{ $isHomePage := eq .Title .Site.Title }}{{ .Title }}{{ if eq $isHomePage false }}
       -

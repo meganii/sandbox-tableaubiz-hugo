@@ -1,8 +1,8 @@
 {{ define "main" }}
-<h2>Viz一覧</h2>
-<ul>
-{{ range .Paginator.Pages }}
-<li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-{{ end }}
-</ul>
+  <h2 class="text-4xl">Viz一覧</h2>
+  <ul>
+    {{ range .Paginator.Pages }}
+      <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
 {{ end }}

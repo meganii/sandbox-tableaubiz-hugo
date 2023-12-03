@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="{{ .Site.LanguageCode }}" class="text-gray-800">
-  {{- partial "head.html" . -}}
+  {{- partial "head_tablaeu.html" . -}}
   <body class="font-ja break-words">
+    {{- partial "header.html" . -}}
     <div class="container mx-auto flex min-h-screen flex-col">
-      {{- partial "header.html" . -}}
-      <main id="content" class="flex-1 sm:mx-4 md:mx-12 lg:mx-40 xl:mx-48">
+      <main id="content" class="flex-1">
         {{- block "main" . }}{{- end }}
       </main>
     </div>

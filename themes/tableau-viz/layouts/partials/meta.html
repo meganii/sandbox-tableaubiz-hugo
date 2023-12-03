@@ -1,15 +1,34 @@
-<meta name="description" content="{{ replaceRE "\n" "" ((.Description | default .Summary) | plainify) }}">
-<meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
-<meta property="og:type" content="article">
-<meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="{{ if isset .Params "thumb" }}{{ .Permalink }}{{ .Params.Thumb }}?{{ now.UnixMilli }}{{ end }}">
-<meta property="og:site_name" content="{{ .Site.Title }}">
-<meta property="og:description" content="{{ replaceRE "\n" "" ((.Description | default .Summary) | plainify) }}">
-<meta property="og:locale" content="ja_JP">
+<meta
+  name="description"
+  content="{{ replaceRE "\n" "" ((.Description | default .Summary) | plainify) }}"
+/>
+<meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta
+  property="og:image"
+  content="{{ if isset .Params "thumb" }}
+    {{ .Permalink }}{{ .Params.Thumb }}?{{ now.UnixMilli }}
+  {{ end }}"
+/>
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+<meta
+  property="og:description"
+  content="{{ replaceRE "\n" "" ((.Description | default .Summary) | plainify) }}"
+/>
+<meta property="og:locale" content="ja_JP" />
 
-<meta name="twitter:site" content="{{ .Site.Title }}">
-<meta name="twitter:url" content="{{ .Permalink }}">
-<meta name="twitter:title" content="{{ .Title }} - {{ .Site.Title }}">
-<meta name="twitter:description" content="{{ replaceRE "\n" "" ((.Description | default .Summary) | plainify) }}">
-<meta name="twitter:image" content="{{ if isset .Params "thumb" }}{{ .Permalink }}{{ .Params.Thumb }}?{{ now.UnixMilli }}{{ end }}">
+<meta name="twitter:site" content="{{ .Site.Title }}" />
+<meta name="twitter:url" content="{{ .Permalink }}" />
+<meta name="twitter:title" content="{{ .Title }} - {{ .Site.Title }}" />
+<meta
+  name="twitter:description"
+  content="{{ replaceRE "\n" "" ((.Description | default .Summary) | plainify) }}"
+/>
+<meta
+  name="twitter:image"
+  content="{{ if isset .Params "thumb" }}
+    {{ .Permalink }}{{ .Params.Thumb }}?{{ now.UnixMilli }}
+  {{ end }}"
+/>
 <meta name="twitter:card" content="summary_large_image" />

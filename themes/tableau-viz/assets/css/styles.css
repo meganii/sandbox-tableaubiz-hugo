@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* For markdown list */
+
+.post ul > li {
+  list-style: none;
+  list-style-position: inside;
+  position: relative;
+  padding-left: 1.6em;
+}
+
+.post ol > li,
+.post ul > li {
+  margin: 0.6rem 0;
+}
+
+.post ul > li:before {
+  content: "";
+  position: absolute;
+  top: 0.7em;
+  left: 0.35em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(24, 30, 50, 0.7);
+}
+
+.post ol {
+  list-style: decimal;
+  padding-left: 1.6em;
+}
+
+.post > p {
+  @apply mt-7;
+}
+
+.post h2 {
+  @apply text-xl;
+  @apply font-bold;
+  @apply border-b-2;
+  @apply border-gray-300;
+  @apply mt-8;
+  @apply mb-6;
+  @apply pb-2;
+}
+
+.post h3 {
+  @apply text-lg;
+  @apply font-semibold;
+  @apply border-l-4;
+  @apply pl-4;
+  @apply mt-8;
+  @apply mb-6;
+}
+
+.post h4 {
+  @apply text-lg;
+  @apply font-semibold;
+  @apply mt-4;
+  @apply mb-2;
+}
+
+.post pre {
+  @apply p-6;
+  @apply overflow-auto;
+  @apply bg-gray-300;
+  @apply text-sm;
+  @apply border;
+  @apply border-gray-100;
+  @apply rounded;
+  @apply mb-1;
+}
+
+.post p > code,
+.post li > code {
+  @apply text-sm;
+  @apply m-0;
+  @apply pt-1;
+  @apply pb-1;
+  @apply pl-2;
+  @apply pr-2;
+  @apply rounded;
+  @apply bg-gray-100;
+}
+
+.toc a {
+  @apply hover:underline;
+}
+
+.post blockquote {
+  @apply text-sm;
+  @apply bg-gray-100;
+  @apply mt-3;
+  @apply p-4;
+  @apply border;
+  @apply border-gray-100;
+  @apply rounded;
+}
+
+.post .highlight {
+  @apply text-xs;
+  @apply bg-gray-100;
+  @apply relative;
+  @apply border;
+  @apply border-gray-100;
+  @apply rounded;
+  @apply mb-2;
+}
+
+.post table {
+  @apply overflow-auto;
+  @apply mt-4;
+  @apply border-l;
+  @apply border-gray-300;
+  @apply border-collapse;
+  @apply table-auto;
+  @apply block;
+}
+
+.post thead {
+  @apply border-t;
+  @apply bg-gray-100;
+}
+
+.post tr:nth-child(even) {
+  @apply bg-gray-100;
+}
+
+.post th,
+td {
+  @apply border-b;
+  @apply border-r;
+  @apply border-gray-300;
+  @apply py-1 md:py-3;
+  @apply px-2 md:px-4;
+}
+
+.external-link:not([href$=".jpg" i]):not([href$=".png" i]):not(
+    [href$=".gif" i]
+  ):not([href$=".jpeg" i]):not([href$=".webp" i])::after {
+  display: inline-block;
+  vertical-align: -0.65em;
+  margin-left: -0.5em;
+  width: 2em;
+  height: 2em;
+  content: " ";
+  background-color: #003feb;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3Cstyle%3E.a,.b%7Bfill:none;%7D.b%7Bstroke:%23000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3E125_arr_24%3C/title%3E%3Crect class='a' width='48' height='48'/%3E%3Cpolyline class='b' points='27 12 36 12 36 21'/%3E%3Cpolyline class='b' points='32 26 32 34 14 34 14 16 22 16'/%3E%3Cline class='b' x1='24' y1='24' x2='35' y2='13'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3Cstyle%3E.a,.b%7Bfill:none;%7D.b%7Bstroke:%23000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3E125_arr_24%3C/title%3E%3Crect class='a' width='48' height='48'/%3E%3Cpolyline class='b' points='27 12 36 12 36 21'/%3E%3Cpolyline class='b' points='32 26 32 34 14 34 14 16 22 16'/%3E%3Cline class='b' x1='24' y1='24' x2='35' y2='13'/%3E%3C/svg%3E");
+}
