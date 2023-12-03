@@ -27,15 +27,15 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: pnpm install
-
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
         with:
           version: 7
           run_install: false
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
