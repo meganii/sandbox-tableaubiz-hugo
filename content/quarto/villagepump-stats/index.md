@@ -2,6 +2,7 @@
 title: 井戸端統計情報
 date: "2023-12-03"
 format: hugo-md
+thumb: index.markdown_strict_files/figure-markdown_strict/unnamed-chunk-1-1.png
 ---
 
 ``` r

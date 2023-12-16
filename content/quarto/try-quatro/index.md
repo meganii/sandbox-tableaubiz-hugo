@@ -4,6 +4,7 @@ date: "2023-12-02"
 format: hugo-md
 execute:
   freeze: true
+thumb: index.markdown_strict_files/figure-markdown_strict/unnamed-chunk-1-2.png
 ---
 
 ``` r

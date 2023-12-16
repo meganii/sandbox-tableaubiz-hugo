@@ -1,8 +1,19 @@
 {{ define "main" }}
   <h2 class="text-4xl">Viz一覧</h2>
-  <ul>
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
     {{ range .Paginator.Pages }}
-      <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+      <div>
+        <a href="{{ .Permalink }}">
+          <h2>{{ .Title }}</h2>
+          <div class="h-48 w-64">
+            <img
+              class="object-scale-down"
+              src="{{ .Permalink }}{{ .Params.thumb }}"
+              alt=""
+            />
+          </div>
+        </a>
+      </div>
     {{ end }}
-  </ul>
+  </div>
 {{ end }}
