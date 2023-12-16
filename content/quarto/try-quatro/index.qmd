@@ -1,9 +1,10 @@
 ---
-title: Hello, Quarto
+title: "「東京」7月の気温変化"
 date: "2023-12-02"
 format: hugo-md
 execute:
-  freeze: true
+  freeze: auto
+thumb: index.markdown_strict_files/figure-markdown_strict/unnamed-chunk-1-2.png
 ---
 
 ```{r}
