@@ -50,7 +50,7 @@ weekly_counts <- df %>%
 weekly_counts
 ```
 
-    # A tibble: 202 × 2
+    # A tibble: 204 × 2
        week           n
        <date>     <int>
      1 2020-01-19     5
@@ -63,7 +63,7 @@ weekly_counts
      8 2020-03-08     0
      9 2020-03-15     0
     10 2020-03-22     0
-    # ℹ 192 more rows
+    # ℹ 194 more rows
 
 ``` r
 month_counts <- df %>% 
