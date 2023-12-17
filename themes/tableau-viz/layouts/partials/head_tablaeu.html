@@ -6,10 +6,7 @@
   />
   {{- partial "meta.html" . -}}
   {{- partialCached "css.html" . -}}
-  <script
-    type="module"
-    src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.js"
-  ></script>
+  <script type="module" src="/js/tableau.embedding.3.8.0.min.js"></script>
   <script>
     function onFirstInteractiveHandler(e) {
       document.dispatchEvent(new Event("app-ready"));

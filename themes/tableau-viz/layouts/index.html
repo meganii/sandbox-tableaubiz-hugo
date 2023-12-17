@@ -1,6 +1,6 @@
 {{ define "main" }}
   <h2 class="text-4xl">Viz一覧</h2>
-  <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+  <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
     {{ range .Paginator.Pages }}
       <div>
         <a href="{{ .Permalink }}">
