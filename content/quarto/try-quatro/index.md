@@ -207,3 +207,10 @@ p1_ave + p2_max + p3_min +
 ```
 
 <img src="index.markdown_strict_files/figure-markdown_strict/unnamed-chunk-1-2.png" width="768" />
+
+
+---
+
+## 参考
+
+- [jmastatsパッケージによる気象庁の気象データの取得〜過去100年間の気温のヒートマップを作成するまで〜](https://uribo.quarto.pub/jmastats_heatmap/)
